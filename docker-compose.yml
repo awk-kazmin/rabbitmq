@@ -1,0 +1,35 @@
+version: "3.3"
+services:
+  postgres:
+    image: postgres:10
+    volumes:
+      - ./storage/postgresql-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: "strong_pass"
+      POSTGRES_DB: "redmine"
+      PGDATA: "/var/lib/postgresql/data"
+  redmine:
+    build:
+      context: .
+    image: redmine:custom
+    ports:
+      - 80:3000
+    volumes:
+      - ./storage/docker_redmine-plugins:/usr/src/redmine/plugins
+      - ./storage/docker_redmine-themes:/usr/src/redmine/public/themes
+      - ./storage/docker_redmine-data:/usr/src/redmine/files
+    environment:
+      REDMINE_DB_POSTGRES: "postgres"
+      REDMINE_DB_USERNAME: "postgres"
+      REDMINE_DB_PASSWORD: "strong_pass"
+      REDMINE_DB_DATABASE: "redmine"
+      REDMINE_SECRET_KEY_BASE: "…"
+  rabbitmq:
+    image: rabbitmq:3-management
+    volumes:
+      - ./storage/docker_rabbitmq_etc/:/etc/rabbitmq/
+      - ./storage/docker_rabbitmq_data/:/var/lib/rabbitmq/
+      - ./storage/docker_rabbitmq_logs/:/var/log/rabbitmq/
+    ports:
+      - 5672:5672
+      - 15672:15672
