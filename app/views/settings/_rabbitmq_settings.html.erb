@@ -1,0 +1,27 @@
+<fieldset>
+  <legend><%= l(:rabbitmq_label_settings) %></legend>
+  <p>
+    <label><%= l(:rabbitmq_label_username) %></label>
+    <%= text_field_tag "settings[username]", @settings["username"] %>
+  </p>
+  
+  <p>
+    <label><%= l(:rabbitmq_label_password) %></label>
+    <%= password_field_tag "settings[password]", @settings["password"] %>
+  </p>
+
+  <p>
+    <label><%= l(:rabbitmq_label_exchange) %></label>
+    <%= text_field_tag "settings[exchange]", @settings["exchange"] %>
+  </p>
+
+  <p>
+    <label><%= l(:rabbitmq_label_server) %></label>
+    <%= text_field_tag "settings[server]", @settings["server"] %>
+  </p>
+
+  <p>
+    <label><%= l(:rabbitmq_label_port) %></label>
+    <%= number_field_tag "settings[port]", @settings["port"] %>
+  </p>
+</fieldset>

@@ -1,1 +1,1 @@
-storage/docker_redmine-plugins/rabbitmq/Gemfile
+gem "bunny", ">= 2.14.1"

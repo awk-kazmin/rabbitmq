@@ -1,0 +1,8 @@
+# English strings go here for Rails i18n
+en:
+  rabbitmq_label_settings: RabbitMQ Notifications settings
+  rabbitmq_label_username: RabbitMQ username
+  rabbitmq_label_password: Password
+  rabbitmq_label_exchange: Exchange
+  rabbitmq_label_server: Server
+  rabbitmq_label_port: Port

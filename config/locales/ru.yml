@@ -1,0 +1,8 @@
+# Russian strings go here for Rails i18n
+en:
+  rabbitmq_label_settings: RabbitMQ Настройки
+  rabbitmq_label_username: RabbitMQ имя пользователя
+  rabbitmq_label_password: Пароль
+  rabbitmq_label_exchange: Канал обмена
+  rabbitmq_label_server: Сервер
+  rabbitmq_label_port: Порт

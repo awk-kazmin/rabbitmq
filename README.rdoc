@@ -1,1 +1,3 @@
-storage/docker_redmine-plugins/rabbitmq/README.rdoc
+= rabbitmq
+
+Description goes here
