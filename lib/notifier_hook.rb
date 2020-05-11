@@ -17,12 +17,11 @@ class NotifierHook < Redmine::Hook::Listener
   private
 
   def logger
-    config.logger
+    ::Rails.logger
   end
 
   def notify_error(e)
     logger.error "RabbitMQ Hook error => exception #{e.class.name} : #{e.message}"
-    flash[:error] = "Exception caught while delivering notification to RabbitMQ channel"
   end
 
   def settings
@@ -57,12 +56,16 @@ class NotifierHook < Redmine::Hook::Listener
   end
 
   def deliver(message, key)
-    make_exchange do |exchange|
-      exchange.publish(
-        message,
-        :routing_key => key,
-        :content_type => "application/json",
-      )
+    begin
+      make_exchange do |exchange|
+        exchange.publish(
+          message,
+          :routing_key => key,
+          :content_type => "application/json",
+        )
+      end
+    rescue => exception
+      notify_error(exception)
     end
   end
 end
