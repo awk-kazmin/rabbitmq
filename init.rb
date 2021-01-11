@@ -6,7 +6,7 @@ Redmine::Plugin.register :rabbitmq do
   author 'Василий Казьмин'
   description 'This is a plugin for Redmine'
   version '0.0.1'
-  url 'http://example.com/path/to/plugin'
+  url 'https://github.com/awk-kazmin/rabbitmq'
   author_url 'http://example.com/about'
   settings :default => {
     "username" => "guest", 
