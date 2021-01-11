@@ -11,5 +11,5 @@ Following actions will result in notifications to Jabber:
 - The RabbitMQ Notifications Plugin depends on the [bunny](https://github.com/ruby-amqp/bunny). This can be installed with: $ gem install bunny
 - Then install the Plugin following the general Redmine [plugin installation instructions](http://www.redmine.org/wiki/redmine/Plugins).
 - Go to the Plugins section of the Administration page, select Configure.
-- On this page fill out the Jabber ID and password for user who will sends messages, and the MUC room where to send messages to.
+- On this page fill settings.
 - Restart your Redmine web servers (e.g. mongrel, thin, mod_rails).
